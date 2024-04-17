@@ -14,10 +14,12 @@ public class Server {
         try {
             server = new ServerSocket(PORT);
 
-            client = server.accept();
-            inputScanner = new Scanner(client.getInputStream());
+         
 
             do {
+                client = server.accept();
+                inputScanner = new Scanner(client.getInputStream());
+
                 handleClient();
             } while (true);
 
