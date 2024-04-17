@@ -16,12 +16,11 @@ public class Client {
 
         try {
             HOST = InetAddress.getByName("192.168.253.167");
-            System.out.println(HOST);
-            client = new Socket(HOST, PORT);
-            printOutput = new PrintStream(client.getOutputStream());
             keyboard = new Scanner(System.in);
 
             do {
+                client = new Socket(HOST, PORT);
+                printOutput = new PrintStream(client.getOutputStream());
 
                 handleClient(client);
 

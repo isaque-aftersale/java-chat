@@ -15,15 +15,9 @@ public class Server {
         try {
             server = new ServerSocket(PORT);
             client = server.accept();
-
             inputScanner = new Scanner(client.getInputStream());
 
             do {
-
-                if (!client.isBound()) {
-                    client.bind(new InetSocketAddress(3000));
-                }
-
                 handleClient();
             } while (true);
 
