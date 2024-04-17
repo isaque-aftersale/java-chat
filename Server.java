@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -13,12 +14,15 @@ public class Server {
 
         try {
             server = new ServerSocket(PORT);
+            client = server.accept();
 
-         
+            inputScanner = new Scanner(client.getInputStream());
 
             do {
-                client = server.accept();
-                inputScanner = new Scanner(client.getInputStream());
+
+                if (!client.isBound()) {
+                    client.bind(new InetSocketAddress(3000));
+                }
 
                 handleClient();
             } while (true);
