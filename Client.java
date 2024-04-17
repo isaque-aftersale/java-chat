@@ -15,8 +15,8 @@ public class Client {
         Socket client = null;
 
         try {
-            HOST = InetAddress.getByName("172.27.217.124");
-
+            HOST = InetAddress.getByName("192.168.253.17");
+            System.out.println(HOST);
             client = new Socket(HOST, PORT);
             printOutput = new PrintStream(client.getOutputStream());
             keyboard = new Scanner(System.in);
